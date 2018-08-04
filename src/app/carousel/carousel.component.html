@@ -1,0 +1,16 @@
+<div *appCarousel="let image from images; let ctrl = controller; let index = index">
+  <img [src]="image.url" [alt]="image.title">
+
+  <div class="text-block">
+    <h4>{{image.title}}</h4>
+    <p>{{image.place}}</p>
+  </div>
+
+  <button class="left-nav" mat-mini-fab color="accent" (click)="ctrl.prev()">
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+
+  <button class="right-nav" mat-mini-fab color="accent" (click)="ctrl.next()">
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+</div>

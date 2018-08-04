@@ -1,0 +1,197 @@
+@import '../../node_modules/@angular/material/theming';
+
+$plumbago: (
+        50 : #eaf0f7,
+        100 : #cadaeb,
+        200 : #a7c1de,
+        300 : #83a8d0,
+        400 : #6996c6,
+        500 : #4e83bc,
+        600 : #477bb6,
+        700 : #3d70ad,
+        800 : #3566a5,
+        900 : #255397,
+        A100 : #d5e5ff,
+        A200 : #a2c6ff,
+        A400 : #6fa6ff,
+        A700 : #5697ff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000
+        )
+);
+
+$green: (
+        50 : #f0f7ea,
+        100 : #daebca,
+        200 : #c1dea7,
+        300 : #a8d083,
+        400 : #96c669,
+        500 : #83bc4e,
+        600 : #7bb647,
+        700 : #70ad3d,
+        800 : #66a535,
+        900 : #539725,
+        A100 : #e5ffd5,
+        A200 : #c6ffa2,
+        A400 : #a6ff6f,
+        A700 : #97ff56,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #000000,
+                600 : #000000,
+                700 : #000000,
+                800 : #000000,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000
+        )
+);
+
+$cyan: (
+        50 : #edf8f8,
+        100 : #d2eeee,
+        200 : #b4e2e3,
+        300 : #96d6d7,
+        400 : #80cecf,
+        500 : #69c5c6,
+        600 : #61bfc0,
+        700 : #56b8b9,
+        800 : #4cb0b1,
+        900 : #3ba3a4,
+        A100 : #f3ffff,
+        A200 : #c0feff,
+        A400 : #8dfeff,
+        A700 : #74feff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #000000,
+                600 : #000000,
+                700 : #000000,
+                800 : #000000,
+                900 : #000000,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+$pink: (
+        50 : #f7eaf0,
+        100 : #ebcada,
+        200 : #dea7c1,
+        300 : #d083a8,
+        400 : #c66996,
+        500 : #bc4e83,
+        600 : #b6477b,
+        700 : #ad3d70,
+        800 : #a53566,
+        900 : #972553,
+        A100 : #ffd5e5,
+        A200 : #ffa2c6,
+        A400 : #ff6fa6,
+        A700 : #ff5697,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000
+        )
+);
+
+$purple: (
+        50 : #ededf8,
+        100 : #d3d2ee,
+        200 : #b5b4e3,
+        300 : #9796d7,
+        400 : #8180cf,
+        500 : #6b69c6,
+        600 : #6361c0,
+        700 : #5856b9,
+        800 : #4e4cb1,
+        900 : #3c3ba4,
+        A100 : #f3f3ff,
+        A200 : #c1c0ff,
+        A400 : #8e8dff,
+        A700 : #7574ff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+// Includes common styles for Angular Material.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Defines the palettes for Ekiim's theme using custom palettes available in clients-palette.scss and users-palette.scss
+// (imported above).
+$main-primary: mat-palette($plumbago);
+$main-accent: mat-palette($green);
+$main-warn: mat-palette($pink);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$main-theme: mat-light-theme($main-primary, $main-accent, $main-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($main-theme);
+
+// Define an alternate dark theme.
+$secondary-primary: mat-palette($plumbago);
+$secondary-accent:  mat-palette($cyan);
+$secondary-warn:    mat-palette($purple);
+$secondary-theme:   mat-dark-theme($secondary-primary, $secondary-accent, $secondary-warn);
+
+// Include the alternative theme styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.secondary-theme {
+  @include angular-material-theme($secondary-theme);
+}

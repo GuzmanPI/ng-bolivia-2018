@@ -1,16 +1,35 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
+import {MatToolbarModule, MatListModule, MatIconModule, MatButtonModule} from '@angular/material';
 
-import { AppComponent } from './app.component';
+import {OverlayModule} from '@angular/cdk/overlay';
+
+import {AppComponent} from './app.component';
+import {GplusGalleryService} from './gplus-gallery.service';
+import {CarouselComponent} from "./carousel/carousel.component";
+import {CarouselDirective} from "./carousel.directive";
+import {FlexLayoutModule} from "@angular/flex-layout";
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    OverlayModule,
+    FlexLayoutModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent, CarouselComponent, CarouselDirective],
+  bootstrap: [AppComponent],
+  providers: [
+    GplusGalleryService
+  ],
+  entryComponents: [
+    CarouselComponent
+  ]
 })
-export class AppModule { }
+export class AppModule {
+}
