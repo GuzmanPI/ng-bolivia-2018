@@ -5,8 +5,4 @@
   </a>
 </mat-toolbar>
 
-<div class="container" fxLayout="row" fxLayoutAlign="center">
-  <div *ngFor="let image of images; let i = index">
-    <img [src]="image.url" (click)="showGallery(i)" fxFlex>
-  </div>
-</div>
+<app-carousel></app-carousel>

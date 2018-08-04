@@ -1,5 +1,4 @@
-import {Directive, Inject, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
-import {GPLUS_GALLERY_DATA} from "./gplus-gallery.tokens";
+import {Directive, Input, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 
 export interface CarouselContext {
   $implicit: string;
@@ -14,18 +13,17 @@ export interface CarouselContext {
   selector: '[appCarousel]',
 })
 export class CarouselDirective implements OnInit {
-  context: CarouselContext;
-
-  constructor(
-    private templateRef: TemplateRef<CarouselContext>,
-    private viewContainerRef: ViewContainerRef,
-    @Inject(GPLUS_GALLERY_DATA) public index: any) {}
+  constructor(private templateRef: TemplateRef<CarouselContext>, private viewContainerRef: ViewContainerRef) {
+  }
 
   @Input('appCarouselFrom') images: string[];
 
+  context: CarouselContext;
+  index = 0;
+
   ngOnInit(): void {
     this.context = {
-      $implicit: this.images[this.index],
+      $implicit: this.images[0],
       controller: {
         next: () => this.next(),
         prev: () => this.prev(),
@@ -40,8 +38,7 @@ export class CarouselDirective implements OnInit {
     if (this.index >= this.images.length) {
       this.index = 0;
     }
-    this.context.$implicit = this.images[this.index];
-    this.context.index = this.index;
+    this.setContextDate();
   }
 
   prev(): void {
@@ -49,6 +46,11 @@ export class CarouselDirective implements OnInit {
     if (this.index < 0) {
       this.index = this.images.length - 1;
     }
+    this.context.$implicit = this.images[this.index];
+    this.context.index = this.index;
+  }
+
+  private setContextDate() {
     this.context.$implicit = this.images[this.index];
     this.context.index = this.index;
   }
